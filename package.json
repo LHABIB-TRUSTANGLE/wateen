@@ -2,7 +2,6 @@
   "name": "wateen",
   "private": true,
   "version": "0.0.0",
-  "homepage": ".",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -26,7 +25,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.0.8",
-    "vite-plugin-legacy": "^2.1.0"
+    "vite": "^5.0.8"
   }
 }
