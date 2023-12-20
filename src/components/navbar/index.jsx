@@ -79,9 +79,11 @@ const Navbar = () => {
                   >
                     {Array.isArray(value)
                       ? value.map((item) => (
-                          <NavLink to={`/Solutions/${item}`} key={item}>
-                            <SubItems key={item}>{item}</SubItems>
-                          </NavLink>
+                          <SubItems key={item}>
+                            <NavLink to={`solutions/${item}`} key={item}>
+                              {item}
+                            </NavLink>
+                          </SubItems>
                         ))
                       : Object.entries(value).map(([subKey, subValue]) => (
                           <div key={subKey}>
