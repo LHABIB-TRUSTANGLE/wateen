@@ -1,7 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Navbar, Footer } from "./components";
-import { Home, Plans, Login, LetsTalk } from "./pages";
+import {
+  Home,
+  Plans,
+  Login,
+  LetsTalk,
+  Restaurants,
+  Distributors,
+} from "./pages";
 
 const App = () => {
   return (
@@ -13,6 +20,8 @@ const App = () => {
         <Route path="/plans" element={<Plans />} />
         <Route path="/login" element={<Login />} />
         <Route path="/let's-talk" element={<LetsTalk />} />
+        <Route path="/solutions/restaurants" element={<Restaurants />} />
+        <Route path="/solutions/distributors" element={<Distributors />} />
       </Routes>
       <Footer />
     </>

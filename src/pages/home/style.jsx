@@ -12,19 +12,7 @@ export const Section = styled.section`
     height: 50rem;
   }
 
-  // &:nth-of-type(2) {
-  // margin-bottom: 50rem;
-  // }
-
-  // &:nth-of-type(3) {
-  // margin-bottom: 100rem;
-  // }
-
-  // &:nth-of-type(4) {
-  //   margin-bottom: 75rem;
-  // }
-
-  &:nth-of-type(5) {
+  &:last-of-type {
     margin-bottom: 55rem;
   }
 `;

@@ -1,13 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Wrapper, PrimaryBtn } from "../";
-import { Menu, Item, BurgerMenu, BurgerItem } from "./style.jsx";
+import {
+  Menu,
+  Item,
+  BurgerMenu,
+  BurgerItem,
+  SubMenu,
+  SubItems,
+} from "./style.jsx";
+
+const values = {
+  solutions: ["Restaurants", "Distributors"],
+  products: {
+    restaurants: [
+      "Invoice Manager",
+      "Order Manager",
+      "AP Manager",
+      "Restaurant Management Softaware",
+      "Inventory Management",
+      "Recipe Coasting Software",
+      "Restaurant Vendor Payments ",
+      "Purchasing & Order Management",
+      "Expenses Tracking",
+      "Multi Units & Chains",
+      "Cookbook Software",
+    ],
+    distributors: ["AP Manager"],
+  },
+  integrations: {
+    buyers: ["POS", "Accounting & ERP Systems", "Ecommerce", "Reachware"],
+    suppliers: ["Accounting & ERP Systems"],
+  },
+  resources: ["About us", "Case Studies", "Blog", "News"],
+};
 
 const Navbar = () => {
+  const [hoveredKey, setHoveredKey] = useState(null);
+
+  const handleHover = (key) => {
+    setHoveredKey(key);
+  };
+
+  const handleLeave = () => {
+    setHoveredKey(null);
+  };
+
   return (
     <>
       <Wrapper>
-        <Menu>
+        <Menu onMouseLeave={handleLeave}>
           <Item>
             <NavLink to="/">
               <img src="/images/logo-dark.svg" alt="" />
@@ -16,7 +59,47 @@ const Navbar = () => {
           <Item>
             <NavLink to="/">Home</NavLink>
           </Item>
-          <Item>
+          {Object.entries(values).map(([key, value]) => (
+            <Item key={key} onMouseEnter={() => handleHover(key)}>
+              <>
+                <span>{key}</span>
+                <span>
+                  <img src="/images/dropdown-arrow.svg" alt="" />
+                </span>
+                {hoveredKey === key && value && (
+                  <SubMenu
+                    style={
+                      !Array.isArray(value)
+                        ? { display: "flex", gap: "5rem" }
+                        : {
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "1rem",
+                          }
+                    }
+                  >
+                    {Array.isArray(value)
+                      ? value.map((item) => (
+                          <Link to={`/Solutions/${item}`} key={item}>
+                            <SubItems key={item}>{item}</SubItems>
+                          </Link>
+                        ))
+                      : Object.entries(value).map(([subKey, subValue]) => (
+                          <div key={subKey}>
+                            <SubItems style={{ pointerEvents: "none" }}>
+                              <h2>{subKey}</h2>
+                            </SubItems>
+                            {subValue.map((item) => (
+                              <SubItems key={item}>{item}</SubItems>
+                            ))}
+                          </div>
+                        ))}
+                  </SubMenu>
+                )}
+              </>
+            </Item>
+          ))}
+          {/* <Item>
             <span>Solutions</span>
             <img src="/images/dropdown-arrow.svg" alt="" />
           </Item>
@@ -31,7 +114,7 @@ const Navbar = () => {
           <Item>
             <span>Resources</span>
             <img src="/images/dropdown-arrow.svg" alt="" />
-          </Item>
+          </Item> */}
           <Item>
             <NavLink to="/plans">Plans</NavLink>
           </Item>

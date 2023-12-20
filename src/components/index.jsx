@@ -8,6 +8,8 @@ import StandardCard from "./card/standard";
 import { TabCard } from "./card/standard";
 import RequestADemo from "./request-a-demo";
 import Brands from "./brands";
+import MediaBlock from "./media-block";
+import HeroSecondary from "./hero-secondary";
 
 export {
   Navbar,
@@ -20,4 +22,6 @@ export {
   TabCard,
   RequestADemo,
   Brands,
+  MediaBlock,
+  HeroSecondary,
 };

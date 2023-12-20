@@ -17,6 +17,7 @@ export const Item = styled.li`
   display: flex;
   gap: 0.25rem;
   cursor: pointer;
+  text-transform: capitalize;
 
   &:first-child {
     margin-right: 5rem;
@@ -24,6 +25,28 @@ export const Item = styled.li`
 
   &:nth-last-child(2) {
     margin-left: 5rem;
+  }
+`;
+
+export const SubMenu = styled.ul`
+  list-style: none;
+  position: absolute;
+  text-align: left;
+  margin-top: 6.2rem;
+  padding: 2rem;
+  background-color: rgba(255, 246, 229, 0.9);
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  min-width: 25rem;
+`;
+
+export const SubItems = styled.li`
+  padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+  transition: 0.3s ease;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: white;
   }
 `;
 

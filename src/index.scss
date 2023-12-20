@@ -42,3 +42,14 @@ a {
 button {
   cursor: pointer;
 }
+
+.styled-list-item:first-of-type::before {
+  content: "";
+}
+
+.styled-list-item::before {
+  content: "\2022";
+  color: #ff7600;
+  font-size: 1.2em;
+  margin-right: 10px;
+}
