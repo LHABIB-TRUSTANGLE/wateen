@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { Wrapper, PrimaryBtn } from "../";
 import {
@@ -80,9 +79,9 @@ const Navbar = () => {
                   >
                     {Array.isArray(value)
                       ? value.map((item) => (
-                          <Link to={`/Solutions/${item}`} key={item}>
+                          <NavLink to={`/Solutions/${item}`} key={item}>
                             <SubItems key={item}>{item}</SubItems>
-                          </Link>
+                          </NavLink>
                         ))
                       : Object.entries(value).map(([subKey, subValue]) => (
                           <div key={subKey}>
