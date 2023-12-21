@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Wrapper, PrimaryBtn } from "../";
 import {
   Menu,
@@ -36,8 +36,6 @@ const values = {
 };
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
   const [hoveredKey, setHoveredKey] = useState(null);
 
   const handleHover = (key) => {
@@ -79,48 +77,39 @@ const Navbar = () => {
                           }
                     }
                   >
-                    {Array.isArray(value)
-                      ? value.map((item) => (
-                          <SubItems
-                            key={item}
-                            onClick={navigate(`solutions/${item}`)}
-                          >
-                            {/* <NavLink to={`solutions/${item}`} key={item}> */}
-                            {item}
-                            {/* </NavLink> */}
+                    {Array.isArray(value) ? (
+                      // value.map((item) => (
+                      //   <SubItems key={item}>
+                      //     <NavLink to={`/solutions/${item}`} key={item}>
+                      //       {item}
+                      //     </NavLink>
+                      //   </SubItems>
+                      // ))
+                      <>
+                        <NavLink to="/solutions/restaurants">
+                          <SubItems>Restaurants</SubItems>
+                        </NavLink>
+                        <NavLink to="/solutions/distributors">
+                          <SubItems>Distributors</SubItems>
+                        </NavLink>
+                      </>
+                    ) : (
+                      Object.entries(value).map(([subKey, subValue]) => (
+                        <div key={subKey}>
+                          <SubItems style={{ pointerEvents: "none" }}>
+                            <h2>{subKey}</h2>
                           </SubItems>
-                        ))
-                      : Object.entries(value).map(([subKey, subValue]) => (
-                          <div key={subKey}>
-                            <SubItems style={{ pointerEvents: "none" }}>
-                              <h2>{subKey}</h2>
-                            </SubItems>
-                            {subValue.map((item) => (
-                              <SubItems key={item}>{item}</SubItems>
-                            ))}
-                          </div>
-                        ))}
+                          {subValue.map((item) => (
+                            <SubItems key={item}>{item}</SubItems>
+                          ))}
+                        </div>
+                      ))
+                    )}
                   </SubMenu>
                 )}
               </>
             </Item>
           ))}
-          {/* <Item>
-            <span>Solutions</span>
-            <img src="/images/dropdown-arrow.svg" alt="" />
-          </Item>
-          <Item>
-            <span>Products</span>
-            <img src="/images/dropdown-arrow.svg" alt="" />
-          </Item>
-          <Item>
-            <span>Integrations</span>
-            <img src="/images/dropdown-arrow.svg" alt="" />
-          </Item>
-          <Item>
-            <span>Resources</span>
-            <img src="/images/dropdown-arrow.svg" alt="" />
-          </Item> */}
           <Item>
             <NavLink to="/plans">Plans</NavLink>
           </Item>
@@ -128,7 +117,7 @@ const Navbar = () => {
             <NavLink to="/login">Login</NavLink>
           </Item>
           <Item>
-            <NavLink to="/let's-talk">
+            <NavLink to="/lets-talk">
               <PrimaryBtn
                 name="Let's Talk"
                 width="12.5rem"
