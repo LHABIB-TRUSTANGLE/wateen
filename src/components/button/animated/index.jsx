@@ -4,7 +4,11 @@ import { Button } from "./style";
 const AnimatedButton = (props) => {
   return (
     <>
-      <Button theme={props.theme}>
+      <Button
+        bg={props.bg}
+        style={{ backgroundColor: props.bg }}
+        theme={props.theme}
+      >
         <span>{props.name}</span>
         <span>
           <img
