@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Wrapper, PrimaryBtn } from "../";
 import {
   Menu,
@@ -36,6 +36,8 @@ const values = {
 };
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const [hoveredKey, setHoveredKey] = useState(null);
 
   const handleHover = (key) => {
@@ -79,10 +81,13 @@ const Navbar = () => {
                   >
                     {Array.isArray(value)
                       ? value.map((item) => (
-                          <SubItems key={item}>
-                            <NavLink to={`solutions/${item}`} key={item}>
-                              {item}
-                            </NavLink>
+                          <SubItems
+                            key={item}
+                            onClick={navigate(`solutions/${item}`)}
+                          >
+                            {/* <NavLink to={`solutions/${item}`} key={item}> */}
+                            {item}
+                            {/* </NavLink> */}
                           </SubItems>
                         ))
                       : Object.entries(value).map(([subKey, subValue]) => (
