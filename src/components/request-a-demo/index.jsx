@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "./Style";
+import { Card } from "./style";
 import { StandardButton } from "..";
 
 const RequestADemo = () => {
