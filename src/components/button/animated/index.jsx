@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./style";
 
-const AnimatedBtn = (props) => {
+const AnimatedButton = (props) => {
   return (
     <>
       <Button theme={props.theme}>
@@ -21,4 +21,4 @@ const AnimatedBtn = (props) => {
   );
 };
 
-export default AnimatedBtn;
+export default AnimatedButton;

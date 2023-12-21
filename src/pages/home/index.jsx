@@ -1,13 +1,14 @@
 import React from "react";
 import {
   Wrapper,
-  AnimatedBtn,
+  AnimatedButton,
   AnimatedCard,
   StandardCard,
   TabCard,
   Brands,
   RequestADemo,
 } from "../../components";
+
 import { Section, Hero, Primary, Seconary } from "./style";
 
 const Home = () => {
@@ -22,8 +23,8 @@ const Home = () => {
               </h1>
               <h2>Marketplace and Inventory Management Platform</h2>
               <div>
-                <AnimatedBtn name="I'm a distributor" theme="#52006a" />
-                <AnimatedBtn name="I'm a restaurant" theme="#ff7600" />
+                <AnimatedButton name="I'm a distributor" theme="#52006a" />
+                <AnimatedButton name="I'm a restaurant" theme="#ff7600" />
               </div>
             </Primary>
             <Seconary>
@@ -168,7 +169,7 @@ const Home = () => {
             }}
           >
             <TabCard
-              image="/images/wateen-trusted-by-leading-companies.gif"
+              image="/images/provides-effective-communication-channels.gif"
               heading="Provides effective communication channels"
               paragraph="Wateen platform provides effective communication channels that simplifies and speeds up the buying and selling process."
             />
@@ -183,19 +184,19 @@ const Home = () => {
             }}
           >
             <StandardCard
-              image="/images/all-orders-on-wateen-platform.gif"
-              heading="All Orders on Wateen Platform"
-              paragraph="All orders can be obtained in one platform, which is Wateen"
+              image="/images/ultimate-supply-chain-solution.gif"
+              heading="Ultimate Supply Chain Solution"
+              paragraph="Wateen covers all challenges in security, quality, traceability, planning, reporting and dashboard."
             />
             <StandardCard
-              image="/images/one-platform-one-connection-one-provider.gif"
-              heading="One Platform, One Connection, One Provider"
-              paragraph="All market data channels can be combined into a single platform through a single connection to a single provider"
+              image="/images/connecting-companies-fueling-growth.gif"
+              heading="Connecting Companies, Fueling Growth"
+              paragraph="Facilitate the establishment of new business relationships between companies"
             />
             <StandardCard
-              image="/images/wateen-trusted-by-leading-companies.gif"
-              heading="Wateen Trusted by Leading Companies"
-              paragraph="Wateen has been recognized and trusted by the leading companies in the food industry."
+              image="/images/cost-effective-marketing-solution.gif"
+              heading="Cost-Effective Marketing Solution"
+              paragraph="Allow companies to reduce their marketing expenses"
             />
           </div>
         </Wrapper>

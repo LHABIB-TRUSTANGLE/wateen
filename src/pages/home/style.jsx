@@ -12,6 +12,12 @@ export const Section = styled.section`
     height: 50rem;
   }
 
+  &:nth-of-type(3) {
+    background: rgba(128, 128, 128, 0.1);
+    margin: 4rem 0 4rem 0;
+    padding: 2rem 0 2rem 0;
+  }
+
   &:last-of-type {
     margin-bottom: 55rem;
   }

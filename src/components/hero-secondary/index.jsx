@@ -1,6 +1,6 @@
 import React from "react";
 import { Section, Hero, StyledList, StyledListItem } from "./style";
-import { Wrapper } from "../";
+import { Wrapper } from "..";
 
 const HeroSecondary = (props) => {
   function breakString(inputString, delimiter) {

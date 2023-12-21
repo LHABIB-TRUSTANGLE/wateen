@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Primary, Secondary } from "./style";
-import AnimatedBtn from "../button/animated";
+import { AnimatedButton } from "../";
 
 const MediaBlock = (props) => {
   console.log(props?.row);
@@ -30,7 +30,7 @@ const MediaBlock = (props) => {
               <span>{props?.ul?.[3]?.[1]}</span>
             </li>
           </ul>
-          <AnimatedBtn bg={props?.btnClr} name="Learn More‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" />
+          <AnimatedButton bg={props?.btnClr} name="Learn More‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎" />
         </Primary>
         <Secondary>
           <img src={props?.img} alt="" />
@@ -40,4 +40,5 @@ const MediaBlock = (props) => {
     </>
   );
 };
+
 export default MediaBlock;

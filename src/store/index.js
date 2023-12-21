@@ -1,6 +1,10 @@
-// import { create } from "zustand";
+import { create } from "zustand";
 
-// export const useStore = create((set) => ({
-//   hoveredKey: null,
-//   setHoveredKey: (key) => set(() => ({ hoveredKey: key })),
-// }));
+const useStore = create((set) => ({
+  // for desktop
+  hoveredKey: null,
+  handleHover: (key) => set({ hoveredKey: key }),
+  handleLeave: () => set({ hoveredKey: null }),
+}));
+
+export default useStore;

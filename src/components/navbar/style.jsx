@@ -31,10 +31,12 @@ export const Item = styled.li`
 export const SubMenu = styled.ul`
   list-style: none;
   position: absolute;
+  z-index: 1;
   text-align: left;
-  margin-top: 6.2rem;
+  margin-top: 6.1rem;
   padding: 2rem;
-  background-color: rgba(255, 246, 229, 0.9);
+  background-color: rgba(255, 246, 229, 0.75);
+  backdrop-filter: blur(10px);
   border-bottom-right-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
   min-width: 25rem;
@@ -51,23 +53,26 @@ export const SubItems = styled.li`
 `;
 
 export const BurgerMenu = styled.ul`
-  height: 8rem;
   list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  @media (min-width: 1081px) {
-    display: none;
+  main {
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div:first-child img {
+      width: 2rem;
+    }
+
+    div:last-child img {
+      width: 10rem;
+    }
+
+    @media (min-width: 1081px) {
+      display: none;
+    }
   }
 `;
 
-export const BurgerItem = styled.li`
-  &:first-child img {
-    width: 2rem;
-  }
-
-  &:last-child img {
-    width: 10rem;
-  }
-`;
+export const BurgerItem = styled.li``;

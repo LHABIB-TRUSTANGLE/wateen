@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./style";
 
-const PrimaryBtn = (props) => {
+const StandardButton = (props) => {
   return (
     <>
       <Button
@@ -16,4 +16,4 @@ const PrimaryBtn = (props) => {
   );
 };
 
-export default PrimaryBtn;
+export default StandardButton;

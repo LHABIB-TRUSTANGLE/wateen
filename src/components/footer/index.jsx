@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Content, About, QuickAccess, Primary, Secondary } from "./style";
-import { Wrapper } from "../";
+import { Wrapper } from "..";
 
 const Footer = () => {
   return (

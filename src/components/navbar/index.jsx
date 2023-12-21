@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { Wrapper, PrimaryBtn } from "../";
+import { Wrapper, StandardButton } from "..";
+import useStore from "../../store";
+
 import {
   Menu,
   Item,
@@ -36,14 +38,14 @@ const values = {
 };
 
 const Navbar = () => {
-  const [hoveredKey, setHoveredKey] = useState(null);
+  const { hoveredKey, handleHover, handleLeave } = useStore();
 
-  const handleHover = (key) => {
-    setHoveredKey(key);
-  };
-
-  const handleLeave = () => {
-    setHoveredKey(null);
+  const handleClick = (itemId) => {
+    setYourState((prevState) => {
+      const updatedState = { ...prevState };
+      updatedState[itemId] = !updatedState[itemId];
+      return updatedState;
+    });
   };
 
   return (
@@ -77,34 +79,27 @@ const Navbar = () => {
                           }
                     }
                   >
-                    {Array.isArray(value) ? (
-                      // value.map((item) => (
-                      //   <SubItems key={item}>
-                      //     <NavLink to={`/solutions/${item}`} key={item}>
-                      //       {item}
-                      //     </NavLink>
-                      //   </SubItems>
-                      // ))
-                      <>
-                        <NavLink to="/solutions/restaurants">
-                          <SubItems>Restaurants</SubItems>
-                        </NavLink>
-                        <NavLink to="/solutions/distributors">
-                          <SubItems>Distributors</SubItems>
-                        </NavLink>
-                      </>
-                    ) : (
-                      Object.entries(value).map(([subKey, subValue]) => (
-                        <div key={subKey}>
-                          <SubItems style={{ pointerEvents: "none" }}>
-                            <h2>{subKey}</h2>
+                    {Array.isArray(value)
+                      ? value.map((item) => (
+                          <SubItems key={item}>
+                            <NavLink
+                              key={item}
+                              to={`/solutions/${item}`.toLowerCase()}
+                            >
+                              {item}
+                            </NavLink>
                           </SubItems>
-                          {subValue.map((item) => (
-                            <SubItems key={item}>{item}</SubItems>
-                          ))}
-                        </div>
-                      ))
-                    )}
+                        ))
+                      : Object.entries(value).map(([subKey, subValue]) => (
+                          <div key={subKey}>
+                            <SubItems style={{ pointerEvents: "none" }}>
+                              <h2>{subKey}</h2>
+                            </SubItems>
+                            {subValue.map((item) => (
+                              <SubItems key={item}>{item}</SubItems>
+                            ))}
+                          </div>
+                        ))}
                   </SubMenu>
                 )}
               </>
@@ -118,7 +113,7 @@ const Navbar = () => {
           </Item>
           <Item>
             <NavLink to="/lets-talk">
-              <PrimaryBtn
+              <StandardButton
                 name="Let's Talk"
                 width="12.5rem"
                 borderRadius="3rem"
@@ -128,16 +123,25 @@ const Navbar = () => {
         </Menu>
 
         <BurgerMenu>
-          <BurgerItem>
-            <NavLink to="/">
-              <img src="/images/burger-menu.svg" alt="" />
-            </NavLink>
-          </BurgerItem>
-          <BurgerItem>
-            <NavLink to="/">
-              <img src="/images/logo-dark.svg" alt="" />
-            </NavLink>
-          </BurgerItem>
+          <main>
+            <div>
+              <NavLink to="/">
+                <img src="/images/burger-menu.svg" alt="" />
+              </NavLink>
+            </div>
+            <div>
+              <NavLink to="/">
+                <img src="/images/logo-dark.svg" alt="" />
+              </NavLink>
+            </div>
+          </main>
+
+          <BurgerItem
+          // style={{
+          //   height: "calc(100vh - 8rem)",
+          //   width: "100%",
+          // }}
+          ></BurgerItem>
         </BurgerMenu>
       </Wrapper>
     </>

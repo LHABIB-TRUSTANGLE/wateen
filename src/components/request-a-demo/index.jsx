@@ -1,6 +1,6 @@
 import React from "react";
-import { Card } from "./style";
-import { PrimaryBtn } from "../../components";
+import { Card } from "./Style";
+import { StandardButton } from "..";
 
 const RequestADemo = () => {
   return (
@@ -14,7 +14,7 @@ const RequestADemo = () => {
           </p>
         </div>
         <div>
-          <PrimaryBtn
+          <StandardButton
             width="18rem"
             borderRadius="1rem"
             name="Talk to an Expert"
